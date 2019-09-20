@@ -52,14 +52,32 @@ table {
     border-spacing: 0;
 }
 
+body{
+    background-image: url(../imagens/telaArte_1.png);
+}
+
 div{
-    background-color: orange;
+    background-color: rgba(255,140,0,.7);
     text-align: justify;
     text-justify: inter-word;
 }
+
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: green;
     text-align: center;
 }
 
+button{
+    color: orange;
+}
+ul{
+    
+    font-size: 2rem;
+}
+p{
+    font-size: 2rem;
+}
+button{
+    font-size: 2rem;
+}
