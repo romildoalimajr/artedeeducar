@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link href="bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -20,46 +20,99 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
         <script>
-        $('button').eq(0).click(function(){
-                    
-                $('p#noticias').fadeOut(3000);
-        });    
-        $('button').eq(0).click(function(){
-                    
-                $('p#noticias').fadeIn(3000);
-        });
-           $('button').eq(1).click(function(){
-                    
-                $('p#eventos').fadeOut(3000);
-        });    
-        $('button').eq(1).click(function(){
-                    
-                $('p#enventos').fadeIn(3000);
-        });
-           $('button').eq(2).click(function(){
-                    
-                $('p#novidades').fadeOut(3000);
-        });    
-        $('button').eq(2).click(function(){
-                    
-                $('p#novidades').fadeIn(3000);
-        });    
-    </script> 
+            $(document).ready(function(){
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('a[href="#top"]').fadeIn();
+        } else {
+            $('a[href="#top"]').fadeOut();
+        }
+    });
+
+    $('a[href="#top"]').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+});
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("button#not").click(function(){
+                $("div#noticias").fadeToggle();
+                    });
+                });
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("button#eve").click(function(){
+                $("div#eventos").fadeToggle();
+                    });
+                });
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("button#nov").click(function(){
+                $("div#novidades").fadeToggle();
+                    });
+                });
+        </script>
+        <script>
+          $(document).ready(function(){
+              $("button#direcao").click(function(){
+              $("div#diretora").fadeToggle();
+                });
+            });
+        </script>
+        <script>
+          $(document).ready(function(){
+              $("button#coord").click(function(){
+              $("div#coord").fadeToggle();
+                });
+            });
+        </script>
+        <script>
+          $(document).ready(function(){
+              $("button#docentes").click(function(){
+              $("div#docentes").fadeToggle();
+                });
+            });
+        </script>
+        <script>
+          $(document).ready(function(){
+              $("button#estrutura").click(function(){
+              $("div#estr").fadeToggle();
+                });
+            });
+        </script>
+
     </head>
-    
-       
     <body>
-        <div class="container">
+       <div class="container">
+            
             <div class="row">
-    <nav class="navbar navbar-expand-lg bg-light navbar-ligth nav-justified nav-fixed-top">
+    <nav class="navbar navbar-expand-lg bg-ligth navbar-ligth nav-justified">
         <div class="col-sm-3">
             <a href="#">
                 <img src="imagens/logoArteEducar.png" width="200">
             </a>
         </div>
         <div class="col-sm-9">
-            <ul class="nav nav-tabs">
+            <button class="navbar-toggler" type="button" data-toggler="collapse" 
+                    data-target="#collapsibleNavbar"
+                    aria-controls="barra-navegacao" 
+                    aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-collapse">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home</a>
                 </li>
@@ -69,34 +122,57 @@ and open the template in the editor.
                 <li class="nav-item">
                     <a class="nav-link" href="#agenda">Agenda</a>
                 </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="#galeria">Galeria</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contatos">Contatos</a>
                 </li>
             </ul>
-        </div>
+            
+        </div>	
+    </nav>
             </div>
+            
+           <hr>
+           <div class="row" id="dataAtual">
+               <div class="col-lg-12 align-items-end">
+        	<script language="JavaScript">
+
+	document.write("<font color='#FFFFFF' size='3' face='arial'>")
+	var mydate=new Date()
+	var year=mydate.getYear()
+	if (year<2000)
+	year += (year < 1900) ? 1900 : 0
+	var day=mydate.getDay()
+	var month=mydate.getMonth()
+	var daym=mydate.getDate()
+	if (daym<10)
+	daym="0"+daym
+	var dayarray=new Array("Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado")
+	var montharray=new Array(" de Janeiro de "," de Fevereiro de "," de Março de ","de Abril de ","de Maio de ","de Junho de","de Julho de ","de Agosto de ","de Setembro de "," de Outubro de "," de Novembro de "," de Dezembro de ")
+	document.write("   "+dayarray[day]+", "+daym+" "+montharray[month]+year+" ")
+	document.write("</b></i></font>")
+	</script>
+               </div>
+        </div>
             <hr>
-            <div class="row">
+            <div class="row" id="palco">
                 <div class="navbar-dark">
-                    <div class="col-lg-2">
-                        <div class="btn-group-vertical btn-group-lg">
-                            <button type="button" class="btn btn-success">Noticias</button>
-                            <button type="button" class="btn btn-success">Eventos</button>
-                            <button type="button" class="btn btn-success">Novidades</button>
+                    
+                        <div class="btn-group btn-group-lg align-content-lg-center">
+                            <button type="button" class="btn btn-success" id="not">Noticias</button>
+                            <button type="button" class="btn btn-success" id="eve">Eventos</button>
+                            <button type="button" class="btn btn-success" id="nov">Novidades</button>
                         </div>
+                    <hr>
+                    <div class="container" id="noticias">
+                    <div class="col-lg-4">
+                    <img src="imagens/educar (47).jpg" style='width:200px; height:250px' class="img-responsive">
                     </div>
-                    <div class="col-lg-10">
-                        <h2>Notícias</h2>
-                        <p id="noticias">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Morbi sollicitudin lorem erat, non tempor augue hendrerit 
-                            sit amet. Maecenas dignissim fermentum libero quis euismod. 
-                            Sed non iaculis lectus. Proin tincidunt aliquet ipsum eu 
-                            sollicitudin. In hac habitasse platea dictumst. Integer 
-                            in purus id dolor viverra pulvinar. Aenean congue elit justo, 
-                            eget finibus orci iaculis vitae.
-                        </p>
-                        <h2>Eventos</h2>
-                        <p id="eventos">
+                    <div class="col-lg-8">
+                        <p>
                             In id urna ac diam pretium fringilla non quis erat. Maecenas 
                             elementum viverra elit. Curabitur id est varius, vestibulum 
                             enim ultrices, viverra ligula. Donec consequat velit et 
@@ -111,9 +187,32 @@ and open the template in the editor.
                             tristique massa. Integer ut leo eu mauris ultrices auctor sit 
                             amet at orci. Donec tristique tortor lectus, eget iaculis tortor 
                             efficitur eu.
+                            
                         </p>
-                        <h2>Novidades</h2>
-                        <p id="novidades">
+                    </div>
+                    </div>
+                    <div class="container" id="eventos">
+                    <div class="col-lg-4">
+                    <img src="imagens/educar (42).jpg" style='width:200px' class="img-responsive">
+                    </div>
+                    <div class="col-lg-8">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Morbi sollicitudin lorem erat, non tempor augue hendrerit 
+                            sit amet. Maecenas dignissim fermentum libero quis euismod. 
+                            Sed non iaculis lectus. Proin tincidunt aliquet ipsum eu 
+                            sollicitudin. In hac habitasse platea dictumst. Integer 
+                            in purus id dolor viverra pulvinar. Aenean congue elit justo, 
+                            eget finibus orci iaculis vitae.
+                        </p>
+                    </div>
+                    </div>
+                    <div class="container" id="novidades">
+                    <div class="col-lg-4">
+                    <img src="imagens/educar (35).jpg" style='width:200px' class="img-responsive">
+                    </div>
+                    <div class="col-lg-8">
+                        <p>
                             Aenean dictum at mauris rutrum finibus. Vestibulum ut nunc ac 
                             velit placerat aliquam id nec tortor. Donec quis posuere elit. 
                             Fusce auctor aliquet odio ut finibus. Duis ac mauris a urna 
@@ -121,46 +220,199 @@ and open the template in the editor.
                             tristique nisi. Nullam sed sodales erat.
                         </p>
                     </div>
+                    </div>
+                </div>
+                </div>
+            <hr>
+            <div class="row" id="quemSomos">                   
+                <div class="btn-group btn-group-lg align-content-lg-center">
+                    <button type="button" class="btn btn-success" id="direcao">Direção</button>
+                    <button type="button" class="btn btn-success" id="coord">Coordenação</button>
+                    <button type="button" class="btn btn-success" id="docentes">Docentes</button>
+                    <button type="button" class="btn btn-success" id="estrutura">Estrutura</button>
+                </div>
+                <div class="media border p-3" id="diretora">
+                    <img src="imagens/diretora.jpg" class="mr-3 mt-3 rounded-circle" style='width:100px'>
+                    <div class="media-body">
+                      <h4>Joelma Gonçalves <small><i>Postado em 22 de setembro 2019</i></small></h4>
+                      <p>Lorem ipsum Vivamus et fringilla magna, at auctor augue. Aliquam auctor 
+                            lobortis lorem, et tincidunt neque mollis eget. Vestibulum 
+                            ligula sapien, euismod a viverra vitae, condimentum ut libero. 
+                            Vestibulum at velit elit. Donec lorem neque, sodales id quam ac, 
+                            accumsan posuere leo.
+                      </p>
+                    </div>
+                </div>
+                <div class="media border p-3" id="coord">
+                    <img src="imagens/coordenador.png" class="mr-3 mt-3 rounded-circle" style='width:100px'>
+                    <div class="media-body">
+                      <h4>Beltrano de Tal <small><i>Postado em 22 de setembro 2019</i></small></h4>
+                      <p>Lorem ipsum Vivamus et fringilla magna, at auctor augue. Aliquam auctor 
+                            lobortis lorem, et tincidunt neque mollis eget. Vestibulum 
+                            ligula sapien, euismod a viverra vitae, condimentum ut libero. 
+                            Vestibulum at velit elit. Donec lorem neque, sodales id quam ac, 
+                            accumsan posuere leo.
+                      </p>
+                    </div>
+                </div>
+                <div class="media border p-3" id="docentes">
+                    <img src="imagens/professora.jpg" class="mr-3 mt-3 rounded-circle" style='width:100px'>
+                    <div class="media-body">
+                      <h4>Fulana de Tal <small><i>Postado em 22 de setembro 2019</i></small></h4>
+                      <p>Lorem ipsum Vivamus et fringilla magna, at auctor augue. Aliquam auctor 
+                            lobortis lorem, et tincidunt neque mollis eget. Vestibulum 
+                            ligula sapien, euismod a viverra vitae, condimentum ut libero. 
+                            Vestibulum at velit elit. Donec lorem neque, sodales id quam ac, 
+                            accumsan posuere leo.
+                      </p>
+                    </div>
+                </div>
+                <div class="media border p-3" id="estr">
+                    <img src="imagens/estrutura.jpg" class="mr-3 mt-3 rounded-circle" style='width:100px'>
+                    <div class="media-body">
+                      <h4>Área de Recreio <small><i>Postado em 22 de setembro 2019</i></small></h4>
+                      <p>Lorem ipsum Vivamus et fringilla magna, at auctor augue. Aliquam auctor 
+                            lobortis lorem, et tincidunt neque mollis eget. Vestibulum 
+                            ligula sapien, euismod a viverra vitae, condimentum ut libero. 
+                            Vestibulum at velit elit. Donec lorem neque, sodales id quam ac, 
+                            accumsan posuere leo.
+                      </p>
+                    </div>
                 </div>
             </div>
             <hr>
             <div class="row">
-                <div class="col-lg-3">
-                    <img src="imagens/logo.png" width="200">
-                </div>
-                <div class="col-lg-9">
-                    <h1 id="quemSomos">Quem Somos</h1>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-lg-3">
-                    <img src="imagens/img03.jpg" width="200">
+                <div class="col-lg-3" id="calendario">
+                    <h3>Calendario Escolar</h3>
+                    <input type="date" id="data" name="dataHoje">
                 </div>
                 <div Class="col-lg-9">
                     <h1 id="agenda">Agenda</h1>
                 </div>
             </div>
+            <hr> 
+            <h1> Galeria </h1>
+            <div class="row" id="galeria">
+                <div class="col-lg-3">
+                    <iframe src="fotos.html" style="height:400px;width:300px;">
+                        
+                    </iframe>
+                    
+                      
+                    
+                </div>
+            <div class="col-lg-9">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                      <li data-target="#demo" data-slide-to="3"></li>
+                      <li data-target="#demo" data-slide-to="4"></li>
+                      <li data-target="#demo" data-slide-to="5"></li>
+                      <li data-target="#demo" data-slide-to="6"></li>
+                      <li data-target="#demo" data-slide-to="7"></li>
+                      <li data-target="#demo" data-slide-to="8"></li>
+                      <li data-target="#demo" data-slide-to="9"></li>
+                      <li data-target="#demo" data-slide-to="10"></li>
+                      <li data-target="#demo" data-slide-to="11"></li>
+                      <li data-target="#demo" data-slide-to="12"></li>
+                      <li data-target="#demo" data-slide-to="13"></li>
+                    </ul>
+  
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="imagens/educar (21).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (2).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (3).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (4).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (5).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (6).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (33).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (8).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (9).jpg">
+    </div>
+      <div class="item">
+          <img src="imagens/educar (10).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (11).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (53).jpg">
+    </div>
+    <div class="item">
+      <img src="imagens/educar (14).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (35).jpg">
+    </div>
+      <div class="item">
+      <img src="imagens/educar (56).jpg">
+    </div>
+  </div>
+
+   
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+            </div>
+            </div>
+            </div>
             <hr>
-            <div class="row">
+            
+            <div class="row" id="contatos">
                 <div Class="col-lg-3">
-                    <img src="imagens/img04.png" width="200">
+                                        <br>
+                    <img src="imagens/img04.png"  class="rounded" width="180" height="180" >
                 </div>
-                <div Class="col-lg-9">
-                    <h1 id="contatos">Contatos</h1>
-                    <img src="imagens/iconeTelefone.png" width="50">
-                    <img src="imagens/iconeWhastapp.png" width="50">
-                    <img src="imagens/iconeFacebook.png" width="50">
-                    <img src="imagens/iconeInstagram.png" width="50">
+                
+                    <div class="col-lg-3">
+                                            <br><br>
+                    <img src="imagens/iconeTelefone.png" width="50" style='float:left' class="img-responsive">
+                        <p>(81) 9 8472-4640 </p></br>
+                    <img src="imagens/iconeWhastapp.png" width="50" style='float:left' class="img-responsive">
+                        <p> +55 81 8472-4640 </p></br>
+                    </div>
+                    <div class="col-lg-3">
+                                            <br><br>
+                    <a href="https://www.facebook.com/escola.artedeeducar" target="_blank">
+                        <img src="imagens/iconeFacebook.png" width="50" style='float:left' class="img-responsive">
+                    </a>
+                        <p>/escola.artedeeducar</p></br>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="imagens/iconeInstagram.png" width="50" style='float:left' class="img-responsive">
+                    </a>
+                        <p>Arte de Educar</p>
+                    </div>
+                <div class="col-lg-3">
+                    <br><br>
+                <img src="imagens/kalangoBG.png"  class="rounded" style='width:200px' >
+                   
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div Class="col-lg-12">
-                    <h1>Desenvolvedor</h1>
-                    <img src="imagens/kalangoBG.png" width="150" align="center">
-                </div>
-            </div>
+   <a href="#top" class="glyphicon glyphicon-chevron-up"></a>
         </div>
+      
     </body>
 </html>
